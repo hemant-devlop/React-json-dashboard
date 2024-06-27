@@ -10,13 +10,13 @@ const Products = () => {
     if(!auth){
       navigate('/login')
     }else{
-    axios.get('http://localhost:8000/products').then(res=>setProducts(res.data))    //fetch products call
+    axios.get('https://json-server-gjf9.onrender.com/products').then(res=>setProducts(res.data))    //fetch products call
     }
   },[auth,navigate])
 
 
   const handleDelete=(id)=>{                  //delete products method call
-    axios.delete(`http://localhost:8000/products/${id}`)
+    axios.delete(`https://json-server-gjf9.onrender.com/products/${id}`)
    setProducts(products.filter(item=>item.id!==id))
   }                         //line no. is used for send id in params
   return (

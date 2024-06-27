@@ -16,7 +16,7 @@ const Update = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://localhost:8000/products/${params.id}`);
+        const response = await axios.get(`https://json-server-gjf9.onrender.com/products/${params.id}`);
         setUser(response.data);
         setValue('name', response.data.name);                
         setValue('price', response.data.price);
@@ -34,7 +34,7 @@ const Update = () => {
 
   const onSubmit = async (data) => {
     try {
-      await axios.put(`http://localhost:8000/products/${params.id}`,data);    //update api called
+      await axios.put(`https://json-server-gjf9.onrender.com/products/${params.id}`,data);    //update api called
       alert('Data successfully updated');
       navigate('/');
     } catch (error) {

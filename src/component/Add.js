@@ -22,7 +22,7 @@ function Add() {
       // formData.append('file', data.file[0]);
       // formData.append('description', data.description);
 
-      const response = await axios.post('http://localhost:8000/products', data);
+      const response = await axios.post('https://json-server-gjf9.onrender.com/products', data);
 
       console.log(response);
       // Redirect to another page after successful submission

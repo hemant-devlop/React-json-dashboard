@@ -15,7 +15,7 @@ function Login() {
 
   useEffect(() => {
     if (debounceValue !== '') {
-      axios.get(`http://localhost:8000/users?email=${debounceValue}`).then(res => setUsers(res.data));
+      axios.get(`https://json-server-gjf9.onrender.com/users?email=${debounceValue}`).then(res => setUsers(res.data));
     }
     if (localStorage.getItem('logged')) {
       navigate('/add');

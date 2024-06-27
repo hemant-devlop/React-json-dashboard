@@ -1,0 +1,58 @@
+{
+  "users": [
+    {
+      "id": "b5dd",
+      "name": "Hemant Kumar",
+      "email": "8114h@gmail.com",
+      "password": "ffffff"
+    },
+    {
+      "id": "08e2",
+      "name": "Hemant Kumar",
+      "email": "8114hd@gmail.com",
+      "password": "12345"
+    },
+    {
+      "id": "d9ae",
+      "name": "simran",
+      "email": "simran@test.com",
+      "password": "simran123"
+    },
+    {
+      "id": "3505",
+      "name": "rohit",
+      "email": "rohit@test.com",
+      "password": "rohit123"
+    }
+  ],
+  "products": [
+    {
+      "name": "google",
+      "price": "19999",
+      "file": "https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/f/h/n/pixel-8a-ga05570-in-google-original-imahyn3ncc6gcfnc.jpeg?q=70",
+      "description": "A google product",
+      "id": "acba"
+    },
+    {
+      "name": "Realme",
+      "price": "17000",
+      "file": "https://m.media-amazon.com/images/I/71h8NUTmBOL._AC_UL480_FMwebp_QL65_.jpg",
+      "description": "a realme product",
+      "id": "3518"
+    },
+    {
+      "id": "36ee",
+      "name": "oneplus",
+      "price": "390000",
+      "file": "https://m.media-amazon.com/images/I/61QRgOgBx0L._AC_UL480_FMwebp_QL65_.jpg",
+      "description": "a oneplus product"
+    },
+    {
+      "name": "iqoo",
+      "price": "15970",
+      "file": "https://m.media-amazon.com/images/I/61sY8BGOyEL._AC_UL480_FMwebp_QL65_.jpg",
+      "description": "A iqoo product",
+      "id": "0c13"
+    }
+  ]
+}

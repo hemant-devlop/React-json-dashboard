@@ -7,36 +7,61 @@ import axios from 'axios';
 import useDebounce from './custom hooks/useDebounce';
 
 function Login() { 
-  const [users, setUsers] = useState([]);
+  // const [users,setUsers] = useState([]);
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
-  const data = watch('email');
-  const debounceValue = useDebounce(data, 1000);
+  // const data = watch('email');
+  // const debounceValue= useDebounce(data,2000);
   const navigate = useNavigate();
-
   useEffect(() => {
-    if (debounceValue !== '') {
-      axios.get(`https://json-server-gjf9.onrender.com/users?email=${debounceValue}`).then(res => setUsers(res.data));
-    }
+    // if (debounceValue != '') { 
+      // const getUser = async () => {  
+        // axios.get("https://json-server-gjf9.onrender.com/users?email="+"8114hd@gmail.com", {
+        //   headers: {
+        //     'Cache-Control': 'no-cache',
+        //     // 'Pragma': 'no-cache',
+        //     // 'Expires': '0'
+        //   }
+        // }).then(res=>setUsers(res.data));
+        // console.log(users)
+        // setUsers(debounceValue)
+          // Handle the result as needed, e.g., set the state or update the UI
+       
+          // console.error('Error:', err.response ? err.response.data : err.message);
+        
+      // };
+      // getUser();
+    // }
+// console.log(debounceValue)
+     
     if (localStorage.getItem('logged')) {
       navigate('/add');
     }
-  }, [debounceValue, navigate]);
-
-  const onSubmit = (data) => {
-    if (users.length === 0) {
+  },[]);               //useeffect end
+  const user = {
+    name:'hemant kumar',
+    email:'8114hd@gmail.com',
+    password:'12345'
+  }
+  const onSubmit = (data) => {                             //onsubmit handle
+    if (user.length === 0) {
       alert('No user found with this email');
       return;
     }
 
-    const user = users[0];
-
-    if (data.email === user.email && data.password === user.password) {
+    // const user = users[0];
+    const localdata=JSON.parse(localStorage.getItem('user'))
+    if (data.email === user.email  && data.password === user.password || data.email ===localdata.email  && data.password ===localdata.password) {
       alert('User logged in successfully');
-      localStorage.setItem('user', JSON.stringify(user));
+      // localStorage.setItem('user', JSON.stringify(user));
       localStorage.setItem('logged', true);     //prevent loggout
       navigate('/');
-    } else if (data.password !== user.password) {
+    } 
+    else if (data.email !== user.email) {
+      alert('Wrong email');
+    }else if (data.password !== user.password) {
       alert('Wrong password');
+    }else{
+      alert ('wrong info')
     }
   };
 
@@ -44,7 +69,9 @@ function Login() {
     <Container className="mt-5">
       <Row className="justify-content-md-center">
         <Col md={6}>
-          <h2>Login</h2>
+          <h2>Login </h2>
+          <p>(email:8114hd@gmail.com password:12345)</p>
+          <p>you can try by register your self</p>
           <Form onSubmit={handleSubmit(onSubmit)}>
             <Form.Group controlId="formBasicEmail">
               <Form.Label>Email address</Form.Label>
@@ -72,7 +99,7 @@ function Login() {
               </Form.Control.Feedback>
             </Form.Group>
 
-            <Button variant="primary" type="submit" className="mt-3">
+            <Button variant="primary" type="submit"  className="mt-3">
               Login
             </Button>
             <Link className='ms-5'to={'/register'}>i don't have an account</Link>

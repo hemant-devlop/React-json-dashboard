@@ -8,7 +8,7 @@ const Navbar = () => {
 
     const handleLogout=()=>{                            //log out function
         localStorage.removeItem('logged')
-        localStorage.clear()
+        // localStorage.clear()               
         navigate('/login')
     }
   return (

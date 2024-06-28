@@ -16,9 +16,8 @@ function Register() {
   const onSubmit = async(data) => {
     try{
       const res=await axios.post('https://json-server-gjf9.onrender.com/users',data)
-      console.log(res.data);
       alert('register sucess')
-      
+      localStorage.setItem('user',JSON.stringify(data))
     }catch(error){
       console.log(console.error(error))
     }

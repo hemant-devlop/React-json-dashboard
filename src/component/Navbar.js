@@ -5,7 +5,7 @@ const Navbar = () => {
     const navigate=useNavigate()
     const auth=localStorage.getItem('logged');            //prevent logout      
     const user=JSON.parse(localStorage.getItem('user'));  //get user details     
-
+    const userName="Hemant Kumar"
     const handleLogout=()=>{                            //log out function
         localStorage.removeItem('logged')
         // localStorage.clear()               
@@ -34,7 +34,7 @@ const Navbar = () => {
           </li>
           <li className="nav-item dropdown">
             <Link className="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            {user.name}   
+            {userName || user.name}   
             </Link>
             <ul className="dropdown-menu">
               <li><a className="dropdown-item" onClick={handleLogout}>Log Out</a></li>
